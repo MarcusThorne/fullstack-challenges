@@ -5,9 +5,7 @@ def size_splitter(array, size)
   correct_length = []
   others = []
 
-  array.each do |string|
-    string.length == size ? correct_length << string : others << string
-  end
+  array.each { |string| string.length == size ? correct_length << string : others << string }
 
   [correct_length.sort, others.sort]
 end
@@ -22,5 +20,5 @@ def block_splitter(array)
 
   array.each { |element| yield(element) ? correct << element : incorrect << element }
 
-  [correct, incorrect]
+  [correct.sort, incorrect.sort]
 end
